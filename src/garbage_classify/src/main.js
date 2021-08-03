@@ -4,7 +4,8 @@ const tf = require("@tensorflow/tfjs-node");
 const TRAIN_DIR = "garbage_images/train";
 const OUTPUT_DIR = "output";
 const MOBILE_NET_URL =
-"https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_1.0_224/model.json";
+"https://alexking-byte.github.io/garbage-classify-tensorflowjs.github.io/model.json";
+//"https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_1.0_224/model.json";
 //  "https://ai-sample.oss-cn-hangzhou.aliyuncs.com/pipcook/models/mobilenet/web_model/model.json";
 
 /**
