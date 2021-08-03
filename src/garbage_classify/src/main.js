@@ -75,7 +75,7 @@ const trainModel = async (model, ds) => {
   // });
 
   await model.fitDataset(ds, {
-    epochs: 10,
+    epochs: 30,
   });
 
   await model.save(`file://${process.cwd()}/${OUTPUT_DIR}/`);
