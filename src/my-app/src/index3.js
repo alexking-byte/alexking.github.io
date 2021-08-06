@@ -429,10 +429,10 @@ document.getElementById('getModel').onchange = function (event) {
     }
 };
 
-document.getElementById('console2').innerText ="start22..." + cv;
+document.getElementById('console2').innerText ="start22..." + cv.innerText;
 
-  while (  cv.innerText!=0) {
-    if (classifier.getNumClasses() > 0) {
+  while ( true ) {
+    if (cv.innerText!=0 && classifier.getNumClasses() > 0) {
   
    
       if (cv.innerText==1){
@@ -441,7 +441,7 @@ document.getElementById('console2').innerText ="start22..." + cv;
       }
 
 
-      document.getElementById('console2').innerText ="start in..." + cv;
+      document.getElementById('console2').innerText ="start in..." + cv.innerText;
    
 
       const img = await webcam.capture();
