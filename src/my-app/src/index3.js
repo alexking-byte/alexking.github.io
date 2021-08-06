@@ -6,11 +6,12 @@ const mobilenet =require("@tensorflow-models/mobilenet");
 const classifier = knnClassifier.create();
 let net;
 
-let cv = 0;
-
 const video = document.getElementById('webcam');
 const button = document.getElementById('button');
 const select = document.getElementById('select');
+
+const cv = document.getElementById('cv');
+
 let currentStream;
 
 async function app() {
@@ -247,8 +248,8 @@ if (select.value === '') {
   videoConstraints.facingMode = 'environment';
 } else {
   videoConstraints.deviceId = { exact: select.value };
- cv=1;
- console.log("cv3: " ,cv);
+cv.innerText=1;
+
 }
 const constraints = {
   video: videoConstraints,
@@ -261,8 +262,8 @@ navigator.mediaDevices
     currentStream = stream;
     video.srcObject = stream;
     //webcam =  tf.data.webcam(video);
-    cv=1;
-    console.log("cv1: " ,cv);
+    cv.innerText=1;
+
     return navigator.mediaDevices.enumerateDevices();
   })
   .then(gotDevices)
@@ -272,8 +273,7 @@ navigator.mediaDevices
 
    //webcam = await tf.data.webcam(video);
 
-   document.getElementById('console2').innerText ="start1..." + cv;
-
+ 
 async function changemodel(){
 
   if (typeof currentStream !== 'undefined') {
@@ -281,6 +281,7 @@ async function changemodel(){
   }
   const videoConstraints = {};
   if (select.value === '') {
+    cv.innerText=0;
     videoConstraints.facingMode = 'environment';
   } else {
     videoConstraints.deviceId = { exact: select.value };
@@ -295,8 +296,8 @@ async function changemodel(){
       currentStream = stream;
       video.srcObject = stream;
       
-      cv=1;
-console.log("cv: " ,cv);
+      cv.innerText=1;
+
       //webcam =  tf.data.webcam(video);
 
     
@@ -319,12 +320,12 @@ button.addEventListener('click', event => {
   }
   const videoConstraints = {};
   if (select.value === '') {
+    cv.innerText=0;
     videoConstraints.facingMode = 'environment';
   } else {
     videoConstraints.deviceId = { exact: select.value };
 
-    cv=1;
-    console.log("cv21: " ,cv);
+  cv.innerText=1;
 
   }
   const constraints = {
@@ -337,8 +338,7 @@ button.addEventListener('click', event => {
       currentStream = stream;
       video.srcObject = stream;
 
-      cv=1;
-      console.log("cv11: " ,cv);
+      cv.innerText=1;
 
       return navigator.mediaDevices.enumerateDevices();
     })
@@ -431,13 +431,13 @@ document.getElementById('getModel').onchange = function (event) {
 
 document.getElementById('console2').innerText ="start22..." + cv;
 
-  while (cv>0) {
+  while (  cv.innerText!=0) {
     if (classifier.getNumClasses() > 0) {
   
    
-      if (cv==1){
+      if (cv.innerText==1){
    webcam = await tf.data.webcam(video);
-   cv=2;
+   cv.innerText=2;
       }
 
 
