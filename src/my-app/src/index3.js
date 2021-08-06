@@ -230,12 +230,11 @@ function gotDevices(mediaDevices) {
       option.appendChild(textNode);
       select.appendChild(option);
 
-      select.value=2;
+      select.value=count;
+
     }
   });
 }
-
-var webcam ;
 
 if (typeof currentStream !== 'undefined') {
   stopMediaTracks(currentStream);
@@ -245,12 +244,13 @@ if (select.value === '') {
   videoConstraints.facingMode = 'environment';
 } else {
   videoConstraints.deviceId = { exact: select.value };
- 
+ cv=1;
 }
 const constraints = {
   video: videoConstraints,
   audio: false
 };
+
 navigator.mediaDevices
   .getUserMedia(constraints)
   .then(stream => {
@@ -416,7 +416,7 @@ document.getElementById('getModel').onchange = function (event) {
 
 
 
-  while (true) {
+  while (true && cv>0) {
     if (classifier.getNumClasses() > 0) {
   
    
