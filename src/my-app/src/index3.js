@@ -441,7 +441,7 @@ document.getElementById('console2').innerText ="start22..." + cv.innerText;
       }
 
 
-      document.getElementById('console2').innerText ="start in..." + cv.innerText;
+      //document.getElementById('console2').innerText ="start in..." + cv.innerText;
    
 
       const img = await webcam.capture();
