@@ -306,13 +306,16 @@ document.getElementById('getModel').onchange = function (event) {
    var fr = new FileReader();
    if (files.length>0) {
    fr.onload = function () {     
+
       document.getElementById("imgf").src = fr.result;
+
+      document.getElementById('ok').innerText ="";
+
+      processimg();
  
    }
    fr.readAsDataURL(files[0]);
    }
-
-   processimg();
 
  };
 
