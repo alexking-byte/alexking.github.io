@@ -1,4 +1,4 @@
-const webcamElement = document.getElementById('webcam');
+//const webcamElement = document.getElementById('webcam');
 //@tensorflow-models/knn-classifier
 const knnClassifier =require("@tensorflow-models/knn-classifier");
 const mobilenet =require("@tensorflow-models/mobilenet");
@@ -128,7 +128,7 @@ classifier.setClassifierDataset(tensorObj);
 
   // Create an object from Tensorflow.js data API which could capture image
   // from the web camera as Tensor.
-  var webcam = await tf.data.webcam(webcamElement);
+ // var webcam = await tf.data.webcam(video);
 
   // Reads an image from the webcam and associates it with a specific class
   // index.
@@ -230,7 +230,7 @@ function gotDevices(mediaDevices) {
       select.appendChild(option);
 
       select.value=2;
-      
+
     }
   });
 }
@@ -261,7 +261,7 @@ navigator.mediaDevices
     console.error(error);
   });
 
-
+  var webcam = await tf.data.webcam(video);
 
 async function changemodel(){
 
@@ -291,7 +291,7 @@ async function changemodel(){
       console.error(error);
     });
 
-    webcam = await tf.data.webcam(webcamElement);
+    //webcam = await tf.data.webcam(webcamElement);
 
 }
 
