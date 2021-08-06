@@ -3,17 +3,17 @@ import { Button, Upload, message, Progress } from "antd";
 import "antd/dist/antd.css";
 import typeIntroObj from "./intro";
 import classesJSON from "./output/classes.json";
-//import MODEL_DATA_URL from "./model.json";
+import MODEL_DATA_URL from "./model.json";
 
 import * as tf from "@tensorflow/tfjs";
 //const tfn = require("@tensorflow/tfjs-node");
 
-//const fs = require("fs");
+const fs = require("fs");
 
 //const MODEL_DATA_URL = 'https://novlan1.github.io/garbage-classify-tensorflow/my-app/src/output/model.json' 
 //const MODEL_DATA_URL ='http://127.0.0.1:1234/model.json';
 
-const MODEL_DATA_URL ='https://alexking-byte.github.io/garbage-classify-tensorflowjs.github.io/model.json';
+//const MODEL_DATA_URL ='https://alexking-byte.github.io/garbage-classify-tensorflowjs.github.io/model.json';
 
 //https://alexking-byte.github.io/garbage-classify-tensorflowjs.github.io/model.json
 
@@ -22,7 +22,7 @@ const MODEL_DATA_URL ='https://alexking-byte.github.io/garbage-classify-tensorfl
 // 'https://github.com/novlan1/garbage-classify-tensorflow/tree/master/my-app/src/output/model.json'; 
 // 'http://model.uwayfly.com/model.json' 
 // "http://127.0.0.1:8080/model.json";
- const CLASSES_DATA_URL = "http://localhost:56566/classes.json";
+ //const CLASSES_DATA_URL = "http://localhost:56566/classes.json";
 
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -81,15 +81,15 @@ class App extends React.PureComponent {
 
   async componentDidMount() {
 
-    //const handler =fs.readFileSync(MODEL_DATA_URL);
+   // const handler =fs.readFileSync("model.json");
     //const handler = tfnode.io.fileSystem(MODEL_DATA_URL);
-    //this.model = await tf.loadLayersModel(handler);
+    this.model = await tf.loadLayersModel("model.json");
     
  
 //const handler = tfn.io.fileSystem("./model.json");
 //this.model = await tf.loadLayersModel(handler);
 
-    this.model = await tf.loadLayersModel(MODEL_DATA_URL);
+   // this.model = await tf.loadLayersModel(MODEL_DATA_URL);
 
     this.model.summary();
  //await fetch(CLASSES_DATA_URL).then((res) => res.json());    
