@@ -231,8 +231,6 @@ function gotDevices(mediaDevices) {
       select.appendChild(option);
 
       select.value=2;
-cv=1;
-
     }
   });
 }
@@ -258,7 +256,7 @@ navigator.mediaDevices
   .then(stream => {
     currentStream = stream;
     video.srcObject = stream;
-    webcam =  tf.data.webcam(video);
+    //webcam =  tf.data.webcam(video);
     cv=1;
     return navigator.mediaDevices.enumerateDevices();
   })
@@ -290,9 +288,11 @@ async function changemodel(){
       currentStream = stream;
       video.srcObject = stream;
       
-      webcam =  tf.data.webcam(video);
-
       cv=1;
+
+      //webcam =  tf.data.webcam(video);
+
+    
 
          return navigator.mediaDevices.enumerateDevices();
     })
@@ -416,7 +416,7 @@ document.getElementById('getModel').onchange = function (event) {
 
 
 
-  while (true && cv>0) {
+  while (true) {
     if (classifier.getNumClasses() > 0) {
   
    
@@ -424,6 +424,9 @@ document.getElementById('getModel').onchange = function (event) {
    webcam = await tf.data.webcam(video);
    cv++;
       }
+
+
+      document.getElementById('console2').innerText ="start...";
    
 
       const img = await webcam.capture();
