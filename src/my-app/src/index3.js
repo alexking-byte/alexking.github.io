@@ -134,7 +134,9 @@ classifier.setClassifierDataset(tensorObj);
   // index.
   const addExample = async classId => {
     // Capture an image from the web camera.
-    const img = await webcam.capture();
+    //const img = await webcam.capture();
+
+    const img = document.getElementById('imgf');
 
     // Get the intermediate activation of MobileNet 'conv_preds' and pass that
     // to the KNN classifier.
@@ -194,14 +196,12 @@ classifier.setClassifierDataset(tensorObj);
 
 
   // When clicking a button, add an example for that class.
-//  document.getElementById('class-a').addEventListener('click', () => addExample(0));
- // document.getElementById('class-b').addEventListener('click', () => addExample(1));
-  //document.getElementById('class-c').addEventListener('click', () => addExample(2));
+  document.getElementById('class-a').addEventListener('click', () => addExample(1));
+ document.getElementById('class-b').addEventListener('click', () => addExample(2));
+document.getElementById('class-c').addEventListener('click', () => addExample(3));
 
   //document.getElementById('class-1').addEventListener('click', () => saveModel());
   //document.getElementById('class-2').addEventListener('click', () => getText());
-
-
 
   document.getElementById('class-3').addEventListener('click', () => processimg());
  document.getElementById('button').addEventListener('click', () => changemodel());
