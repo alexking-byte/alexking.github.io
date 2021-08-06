@@ -5,6 +5,7 @@ const mobilenet =require("@tensorflow-models/mobilenet");
 
 const classifier = knnClassifier.create();
 let net;
+
 let cv = 0;
 
 const video = document.getElementById('webcam');
@@ -267,6 +268,8 @@ navigator.mediaDevices
 
    //webcam = await tf.data.webcam(video);
 
+   document.getElementById('console2').innerText ="start..." + cv;
+
 async function changemodel(){
 
   if (typeof currentStream !== 'undefined') {
@@ -414,9 +417,9 @@ document.getElementById('getModel').onchange = function (event) {
     }
 };
 
+document.getElementById('console2').innerText ="start..." + cv;
 
-
-  while (true && cv>0) {
+  while (cv>0) {
     if (classifier.getNumClasses() > 0) {
   
    
@@ -426,7 +429,7 @@ document.getElementById('getModel').onchange = function (event) {
       }
 
 
-      document.getElementById('console2').innerText ="start...";
+      document.getElementById('console2').innerText ="start..." + cv;
    
 
       const img = await webcam.capture();
