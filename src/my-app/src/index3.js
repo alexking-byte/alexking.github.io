@@ -150,7 +150,7 @@ classifier.setClassifierDataset(tensorObj);
     //console.log(str);
 
         // Dispose the tensor to release the memory.
-    img.dispose();
+    //img.dispose();
   };
 
   function saveModel() {
