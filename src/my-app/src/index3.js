@@ -228,9 +228,39 @@ function gotDevices(mediaDevices) {
       const textNode = document.createTextNode(label);
       option.appendChild(textNode);
       select.appendChild(option);
+
+      select.value=2;
+      
     }
   });
 }
+
+
+if (typeof currentStream !== 'undefined') {
+  stopMediaTracks(currentStream);
+}
+const videoConstraints = {};
+if (select.value === '') {
+  videoConstraints.facingMode = 'environment';
+} else {
+  videoConstraints.deviceId = { exact: select.value };
+}
+const constraints = {
+  video: videoConstraints,
+  audio: false
+};
+navigator.mediaDevices
+  .getUserMedia(constraints)
+  .then(stream => {
+    currentStream = stream;
+    video.srcObject = stream;
+    return navigator.mediaDevices.enumerateDevices();
+  })
+  .then(gotDevices)
+  .catch(error => {
+    console.error(error);
+  });
+
 
 
 async function changemodel(){
