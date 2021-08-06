@@ -144,7 +144,7 @@ classifier.setClassifierDataset(tensorObj);
 
     // Pass the intermediate activation to the classifier.
     classifier.addExample(activation, classId);
-    
+   
     //let str = JSON.stringify( Object.entries(classifier.getClassifierDataset()).map(([label, data])=>[label, Array.from(data.dataSync()), data.shape]) );
 
     //console.log(str);
@@ -200,8 +200,8 @@ classifier.setClassifierDataset(tensorObj);
  document.getElementById('class-b').addEventListener('click', () => addExample(2));
 document.getElementById('class-c').addEventListener('click', () => addExample(3));
 
-  //document.getElementById('class-1').addEventListener('click', () => saveModel());
-  //document.getElementById('class-2').addEventListener('click', () => getText());
+  document.getElementById('class-1').addEventListener('click', () => saveModel());
+  document.getElementById('class-2').addEventListener('click', () => getText());
 
   document.getElementById('class-3').addEventListener('click', () => processimg());
  document.getElementById('button').addEventListener('click', () => changemodel());
