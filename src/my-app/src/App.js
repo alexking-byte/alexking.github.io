@@ -83,7 +83,7 @@ class App extends React.PureComponent {
 
    // const handler =fs.readFileSync("model.json");
     //const handler = tfnode.io.fileSystem(MODEL_DATA_URL);
-    this.model = await tf.loadLayersModel("model.json");
+    this.model = await tf.loadLayersModel("./model.json");
     
  
 //const handler = tfn.io.fileSystem("./model.json");
