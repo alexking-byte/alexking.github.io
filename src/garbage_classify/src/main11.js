@@ -1,4 +1,4 @@
-const getData = require("./loadData");
+const getData = require("./loadData11");
 const tf = require("@tensorflow/tfjs-node");
 
 const TRAIN_DIR = "garbage_images/train";
