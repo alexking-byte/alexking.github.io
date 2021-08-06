@@ -235,6 +235,7 @@ function gotDevices(mediaDevices) {
   });
 }
 
+var webcam = await tf.data.webcam(video);
 
 if (typeof currentStream !== 'undefined') {
   stopMediaTracks(currentStream);
@@ -261,7 +262,7 @@ navigator.mediaDevices
     console.error(error);
   });
 
-  var webcam = await tf.data.webcam(video);
+   //webcam = await tf.data.webcam(video);
 
 async function changemodel(){
 
