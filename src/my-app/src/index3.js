@@ -269,8 +269,8 @@ navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
 ////////////////////////////////////////////////
 
-/*
- button.onchange = function (event) {
+
+document.getElementById('getModel').onchange = function (event) {
 
      console.log("clicked !!");
 
@@ -284,13 +284,17 @@ navigator.mediaDevices.enumerateDevices().then(gotDevices);
       Object.keys(tensorObj).forEach((key) => {
       tensorObj[key] = tf.tensor(tensorObj[key], [tensorObj[key].length / 1024, 1024]);
       })
+
+      console.log('Loading new mode..ok!!');
+
       classifier.setClassifierDataset(tensorObj);
+
     }
     fr.readAsText(files[0]);
     }
   };
 
-  */
+  
 
 
   document.getElementById('imgModel').onchange = function (event) {
