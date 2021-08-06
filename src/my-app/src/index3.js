@@ -230,6 +230,7 @@ function gotDevices(mediaDevices) {
       select.appendChild(option);
 
       select.value=2;
+cv=1;
 
     }
   });
@@ -245,6 +246,7 @@ if (select.value === '') {
   videoConstraints.facingMode = 'environment';
 } else {
   videoConstraints.deviceId = { exact: select.value };
+  webcam = await tf.data.webcam(video);
 }
 const constraints = {
   video: videoConstraints,
@@ -405,12 +407,19 @@ document.getElementById('getModel').onchange = function (event) {
     }
 };
 
+let cv = 1;
 
   while (true) {
     if (classifier.getNumClasses() > 0) {
 
-      webcam = await tf.data.webcam(video);
-      
+    
+   
+      if (cf==1){
+   webcam = await tf.data.webcam(video);
+   cv++;
+      }
+   
+
       const img = await webcam.capture();
 
       // Get the activation from mobilenet from the webcam.
