@@ -204,7 +204,7 @@ document.getElementById('class-c').addEventListener('click', () => addExample(3)
   //document.getElementById('class-2').addEventListener('click', () => getText());
 
   document.getElementById('class-3').addEventListener('click', () => processimg());
- document.getElementById('button').addEventListener('click', () => changemodel());
+ //document.getElementById('button').addEventListener('click', () => changemodel());
 
 
  ///////////////////////////////////////////////////////////
@@ -231,6 +231,7 @@ function gotDevices(mediaDevices) {
     }
   });
 }
+
 
 async function changemodel(){
 
@@ -263,6 +264,35 @@ async function changemodel(){
     webcam = await tf.data.webcam(webcamElement);
 
 }
+
+
+button.addEventListener('click', event => {
+  if (typeof currentStream !== 'undefined') {
+    stopMediaTracks(currentStream);
+  }
+  const videoConstraints = {};
+  if (select.value === '') {
+    videoConstraints.facingMode = 'environment';
+  } else {
+    videoConstraints.deviceId = { exact: select.value };
+  }
+  const constraints = {
+    video: videoConstraints,
+    audio: false
+  };
+  navigator.mediaDevices
+    .getUserMedia(constraints)
+    .then(stream => {
+      currentStream = stream;
+      video.srcObject = stream;
+      return navigator.mediaDevices.enumerateDevices();
+    })
+    .then(gotDevices)
+    .catch(error => {
+      console.error(error);
+    });
+});
+
 
 navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
