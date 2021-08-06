@@ -201,7 +201,7 @@ classifier.setClassifierDataset(tensorObj);
 document.getElementById('class-c').addEventListener('click', () => addExample(3));
 
   document.getElementById('class-1').addEventListener('click', () => saveModel());
-  document.getElementById('class-2').addEventListener('click', () => getText());
+  //document.getElementById('class-2').addEventListener('click', () => getText());
 
   document.getElementById('class-3').addEventListener('click', () => processimg());
  document.getElementById('button').addEventListener('click', () => changemodel());
@@ -272,7 +272,7 @@ navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
 document.getElementById('getModel').onchange = function (event) {
 
-     console.log("clicked !!");
+     console.log("getModel !!");
 
     var target = event.target || window.event.srcElement;
     var files = target.files;
