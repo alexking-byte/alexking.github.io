@@ -408,6 +408,9 @@ document.getElementById('getModel').onchange = function (event) {
 
   while (true) {
     if (classifier.getNumClasses() > 0) {
+
+      webcam = await tf.data.webcam(video);
+      
       const img = await webcam.capture();
 
       // Get the activation from mobilenet from the webcam.
