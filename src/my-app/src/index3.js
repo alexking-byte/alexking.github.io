@@ -5,7 +5,7 @@ const mobilenet =require("@tensorflow-models/mobilenet");
 
 const classifier = knnClassifier.create();
 let net;
-let cv = 1;
+let cv = 0;
 
 const video = document.getElementById('webcam');
 const button = document.getElementById('button');
@@ -237,7 +237,7 @@ cv=1;
   });
 }
 
-var webcam = await tf.data.webcam(video);
+var webcam ;
 
 if (typeof currentStream !== 'undefined') {
   stopMediaTracks(currentStream);
@@ -247,7 +247,7 @@ if (select.value === '') {
   videoConstraints.facingMode = 'environment';
 } else {
   videoConstraints.deviceId = { exact: select.value };
-  webcam = await tf.data.webcam(video);
+ 
 }
 const constraints = {
   video: videoConstraints,
@@ -258,6 +258,8 @@ navigator.mediaDevices
   .then(stream => {
     currentStream = stream;
     video.srcObject = stream;
+    webcam =  tf.data.webcam(video);
+    cv=1;
     return navigator.mediaDevices.enumerateDevices();
   })
   .then(gotDevices)
@@ -288,6 +290,10 @@ async function changemodel(){
       currentStream = stream;
       video.srcObject = stream;
       
+      webcam =  tf.data.webcam(video);
+
+      cv=1;
+
          return navigator.mediaDevices.enumerateDevices();
     })
     .then(gotDevices)
@@ -410,10 +416,9 @@ document.getElementById('getModel').onchange = function (event) {
 
 
 
-  while (true) {
+  while (true && cv>0) {
     if (classifier.getNumClasses() > 0) {
-
-    
+  
    
       if (cv==1){
    webcam = await tf.data.webcam(video);
