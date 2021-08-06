@@ -272,7 +272,7 @@ navigator.mediaDevices
 
    //webcam = await tf.data.webcam(video);
 
-   document.getElementById('console2').innerText ="start..." + cv;
+   document.getElementById('console2').innerText ="start1..." + cv;
 
 async function changemodel(){
 
@@ -322,6 +322,10 @@ button.addEventListener('click', event => {
     videoConstraints.facingMode = 'environment';
   } else {
     videoConstraints.deviceId = { exact: select.value };
+
+    cv=1;
+    console.log("cv21: " ,cv);
+
   }
   const constraints = {
     video: videoConstraints,
@@ -332,6 +336,10 @@ button.addEventListener('click', event => {
     .then(stream => {
       currentStream = stream;
       video.srcObject = stream;
+
+      cv=1;
+      console.log("cv11: " ,cv);
+
       return navigator.mediaDevices.enumerateDevices();
     })
     .then(gotDevices)
@@ -421,7 +429,7 @@ document.getElementById('getModel').onchange = function (event) {
     }
 };
 
-document.getElementById('console2').innerText ="start..." + cv;
+document.getElementById('console2').innerText ="start22..." + cv;
 
   while (cv>0) {
     if (classifier.getNumClasses() > 0) {
@@ -429,11 +437,11 @@ document.getElementById('console2').innerText ="start..." + cv;
    
       if (cv==1){
    webcam = await tf.data.webcam(video);
-   cv++;
+   cv=2;
       }
 
 
-      document.getElementById('console2').innerText ="start..." + cv;
+      document.getElementById('console2').innerText ="start in..." + cv;
    
 
       const img = await webcam.capture();
