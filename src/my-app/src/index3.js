@@ -231,6 +231,8 @@ function gotDevices(mediaDevices) {
       option.appendChild(textNode);
       select.appendChild(option);
 
+      console.log("cv select.value : " ,count);
+
       select.value=count;
 
     }
@@ -246,6 +248,7 @@ if (select.value === '') {
 } else {
   videoConstraints.deviceId = { exact: select.value };
  cv=1;
+ console.log("cv3: " ,cv);
 }
 const constraints = {
   video: videoConstraints,
@@ -259,6 +262,7 @@ navigator.mediaDevices
     video.srcObject = stream;
     //webcam =  tf.data.webcam(video);
     cv=1;
+    console.log("cv1: " ,cv);
     return navigator.mediaDevices.enumerateDevices();
   })
   .then(gotDevices)
@@ -292,7 +296,7 @@ async function changemodel(){
       video.srcObject = stream;
       
       cv=1;
-
+console.log("cv: " ,cv);
       //webcam =  tf.data.webcam(video);
 
     
