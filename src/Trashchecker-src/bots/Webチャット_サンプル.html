@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trashchecker</title>
+<h1>トラッシュチェッカー_Webアプリ_サンプル</h1>
+<script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+
+
+</head>
+<body>
+<div style='min-width: 400px; width: 100%; height: 100%; min-height: 500px;' id="webchat" role="main"></div>
+  <script>
+     // Set  the CSS rules.
+     const styleSet = window.WebChat.createStyleSet({
+         bubbleBackground: 'rgb(245, 245, 245)', //ボット側のメッセージカラー
+         bubbleFromUserBackground: 'rgb(245, 245, 245)',　//ユーザー側のメッセージカラー
+         rootHeight: '600px',
+         rootWidth: '70%',
+         backgroundColor: 'steelblue',
+         microphoneButtonColorOnDictate: '#F33',
+        sendBoxButtonColor: '#000',
+        sendBoxButtonColorOnDisabled: '#CCC',
+        sendBoxButtonColorOnFocus: '#333',
+        sendBoxButtonColorOnHover: '#333',
+        sendBoxTextColor: 'Black',
+        
+        groupTimestamp: true,
+        sendTimeout: 20000,
+        sendTimeoutForAttachments: 120000,
+        timestampColor: '#000',
+        timestampFormat: 'relative',
+
+      });
+
+      // After generated, you can modify the CSS rules.
+      // Change font family and weight. 
+      styleSet.textContent = {
+         ...styleSet.textContent,
+         fontFamily: "'Comic Sans MS', 'Arial', sans-serif",
+         fontWeight: 'bold'
+      };
+      
+    window.WebChat.renderWebChat({
+      directLine: window.WebChat.createDirectLine({
+          token: 'QJq-lVQC-d8.iaERHfUSu4gjIByiCbQ8kA7TnhrjXMTVveSnxynDFxg'}),//ボットのシークレットキー
+      styleSet,
+      styleOptions: {
+         // ボットのイニシャル（アイコンが使えない場合に表示）
+        botAvatarInitials: 'Bot',
+        // ボットのアイコン
+        botAvatarImage: './images/bot.jpg',
+        // ユーザーのイニシャル（アイコンが使えない場合に表示）
+        userAvatarInitials: 'You',
+        // ユーザーのアイコン
+		    userAvatarImage: './images/user.jpg',
+        // アイコンのサイズ
+        avatarSize: 50,
+        // Upload file のボタンを非表示
+        //hideUploadButton: true,
+        
+
+      }
+    }, document.getElementById('webchat'));
+     </script>
+     <div id="result"></div>
+     <div id="result_base64"></div>
+     <script src="test_img.js" defer></script>
+</body>
+</html>

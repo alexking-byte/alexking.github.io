@@ -92,8 +92,12 @@ if(window.File && window.FileReader && window.FileList && window.Blob) {
     //console.log("img:",img.files);
     
       // Get the activation from mobilenet from the webcam.
+
+   
       const activation = net.infer(img, 'conv_preds');
       // Get the most likely class and confidence from the classifier module.
+      classifier.predictClass()
+
       const result = await classifier.predictClass(activation);
     
        //     const classes = ["00001冷蔵庫","00002シルバーカート",

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="sample.css">
+<title>Trashchecker</title>
+<script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+</head> 
+
+<body class="home" >
+
+  <!--ヘッダー-->
+  <header class="page-header">
+    <div class="header-container">
+      <div class="sitetitle">
+        <h1 class="header-logo">
+          <a href="Webチャット_サンプル.html"><img src="./images/logo4.png" alt="Trashchecker"></img></a>
+        </h1>
+          <div class="navbtn"></div>
+      </div>
+      <nav>
+        <ul class="header-nav collapse">
+          <li><a href="#">日本語</a></li>
+          <li><a href="#">English</a></li>
+          <li><a href="#">中國語</a></li>
+          <li><a href="#">português</a></li>
+          <li><a href="#">Tagalog</a></li>
+        </ul>
+      </nav>
+    </div>
+    </header>
+
+    <!--パンくずリスト-->
+    <div class="breadcrumb">
+      <div class="bc-container">
+
+      </div>
+    </div>
+
+    <!--メインページ-->
+    <div class="page-main">
+    <div class="main-container">
+    <a  class="webchat" id="webchat" role="main">
+      <script>
+        // Set  the CSS rules.
+        const styleSet = window.WebChat.createStyleSet({
+            bubbleBackground: 'rgb(245, 245, 245)', //ボット側のメッセージカラー
+            bubbleFromUserBackground: 'rgb(245, 245, 245)',　//ユーザー側のメッセージカラー
+            rootHeight: '600px',
+            rootWidth: '100%',
+            backgroundColor: 'mediumseagreen',
+            microphoneButtonColorOnDictate: '#F33',
+           sendBoxButtonColor: '#000',
+           sendBoxButtonColorOnDisabled: '#CCC',
+           sendBoxButtonColorOnFocus: '#333',
+           sendBoxButtonColorOnHover: '#333',
+           sendBoxTextColor: 'Black',
+           
+           groupTimestamp: true,
+           sendTimeout: 20000,
+           sendTimeoutForAttachments: 120000,
+           timestampColor: '#000',
+           timestampFormat: 'relative',
+   
+         });
+   
+         // After generated, you can modify the CSS rules.
+         // Change font family and weight. 
+        /* styleSet.textContent = {
+            ...styleSet.textContent,
+            fontFamily: "'Comic Sans MS', 'Arial', sans-serif",
+            fontWeight: 'bold'
+         };*/
+         
+       window.WebChat.renderWebChat({
+         directLine: window.WebChat.createDirectLine({
+             token: 'QJq-lVQC-d8.iaERHfUSu4gjIByiCbQ8kA7TnhrjXMTVveSnxynDFxg'}),//ボットのシークレットキー
+         styleSet,
+         styleOptions: {
+            // ボットのイニシャル（アイコンが使えない場合に表示）
+           botAvatarInitials: 'Bot',
+           // ボットのアイコン
+           botAvatarImage: './images/bot.jpg',
+           // ユーザーのイニシャル（アイコンが使えない場合に表示）
+           userAvatarInitials: 'You',
+           // ユーザーのアイコン
+           userAvatarImage: './images/user.jpg',
+           // アイコンのサイズ
+           avatarSize: 50,
+           // Upload file のボタンを非表示
+           //hideUploadButton: true,
+           
+   
+         }
+       }, document.getElementById('webchat'));
+        </script>
+    </a>
+    </div>
+    </div>
+
+    <!--ページ下部-->
+    <div class="page-bottom">
+      <div class="bottom-container">
+
+      </div>
+    </div>
+
+    <!--フッター-->
+    <footer class="page-footer">
+      <div class="footer-container">
+
+      </div>
+    </footer>
+
+</body>
+</html>
