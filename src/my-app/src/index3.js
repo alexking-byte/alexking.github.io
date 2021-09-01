@@ -267,7 +267,8 @@ classifier.setClassifierDataset(tensorObj);
      //const classes = ["00001冷蔵庫","00002シルバーカート",
      //"00003ビン","00004軍手","00005机","00006缶","00007乾電池","00008椅子","00009ペットボトル","00010エアコン"];
      //const classes = ["00007乾電池","00008椅子"];
-     const classes =       ["000000000","00001乾電池","00003ビン","00006ペットボトル"];
+     //const classes =       ["000000000","00001乾電池","00003ビン","00006ペットボトル"];
+     const classes = ["エアコン","シルバーカート","ビン","ペットボトル","乾電池","冷蔵庫","机","椅子","缶","軍手"];
 
      document.getElementById('ok').innerText = `
        prediction-img: ${classes[result.label]} \n
@@ -535,7 +536,8 @@ document.getElementById('console2').innerText ="start22..." + cv.innerText;
        //     const classes = ["00001冷蔵庫","00002シルバーカート",
       //"00003ビン","00004軍手","00005机","00006缶","00007乾電池","00008椅子","00009ペットボトル","00010エアコン"];
 
-      const classes =       ["000000000","00001乾電池","00003ビン","00006ペットボトル"];
+      const classes = ["エアコン","シルバーカート","ビン","ペットボトル","乾電池","冷蔵庫","机","椅子","缶","軍手"];//      ["000000000","00001乾電池","00003ビン","00006ペットボトル"];
+
 
       document.getElementById('console2').innerText = `
         prediction-webcam: ${classes[result.label]} \n
