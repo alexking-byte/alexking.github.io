@@ -1,25 +1,27 @@
 <!DOCTYPE html>
+<!--<html  style="overflow: hidden; height: 100%;">-->
 <html>
-
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="sample.css">
+<meta name="viewport" content="width=device-width" />
+      
+<link rel="stylesheet" href="style.css">
 <title>Trashchecker</title>
 <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
 </head> 
 
-<body class="home" >
-
+<!--<body  style="overflow: hidden; height: 100%;"> -->
+  <body  > 
   <!--ヘッダー-->
   <header class="page-header">
     <div class="header-container">
       <div class="sitetitle">
         <h1 class="header-logo">
-          <a href="Webチャット_サンプル.html"><img src="./images/logo4.png" alt="Trashchecker"></img></a>
+          <a href="WebChat.html"><img src="./images/logo4.png" alt="Trashchecker"></img></a>
         </h1>
-          <div class="navbtn"></div>
+        <!--  <div class="navbtn11"></div> -->
       </div>
-      <nav>
+    <!--  <nav>
         <ul class="header-nav collapse">
           <li><a href="#">日本語</a></li>
           <li><a href="#">English</a></li>
@@ -27,14 +29,14 @@
           <li><a href="#">português</a></li>
           <li><a href="#">Tagalog</a></li>
         </ul>
-      </nav>
+      </nav> -->
     </div>
     </header>
 
     <!--パンくずリスト-->
     <div class="breadcrumb">
       <div class="bc-container">
-
+        ごみの分別にご協力ください。
       </div>
     </div>
 
@@ -47,9 +49,9 @@
         const styleSet = window.WebChat.createStyleSet({
             bubbleBackground: 'rgb(245, 245, 245)', //ボット側のメッセージカラー
             bubbleFromUserBackground: 'rgb(245, 245, 245)',　//ユーザー側のメッセージカラー
-            rootHeight: '600px',
+            rootHeight: '500px',
             rootWidth: '100%',
-            backgroundColor: 'mediumseagreen',
+          //  backgroundColor: 'mediumseagreen',
             microphoneButtonColorOnDictate: '#F33',
            sendBoxButtonColor: '#000',
            sendBoxButtonColorOnDisabled: '#CCC',
@@ -62,7 +64,36 @@
            sendTimeoutForAttachments: 120000,
            timestampColor: '#000',
            timestampFormat: 'relative',
-   
+     // Suggested actions
+  suggestedActionBackground: 'White',
+  suggestedActionBorderColor: undefined,
+  suggestedActionBorderRadius: 0,
+  suggestedActionBorderStyle: 'solid',
+  suggestedActionBorderWidth: 2,
+  suggestedActionDisabledBackground: undefined,
+  suggestedActionDisabledBorderColor: '#E6E6E6',
+  suggestedActionDisabledBorderStyle: 'solid',
+  suggestedActionDisabledBorderWidth: 2,
+  suggestedActionDisabledTextColor: undefined,
+  suggestedActionHeight: 40,
+  suggestedActionImageHeight: 20,
+  suggestedActionLayout: 'carousel',
+  suggestedActionTextColor: undefined,
+
+  // Suggested actions carousel layout
+  suggestedActionsCarouselFlipperCursor: undefined,
+  suggestedActionsCarouselFlipperBoxWidth: 40,
+  suggestedActionsCarouselFlipperSize: 20,
+
+  // Suggested actions flow layout
+  suggestedActionsFlowMaxHeight: undefined,
+
+  // Suggested actions stacked layout
+  suggestedActionsStackedHeight: undefined,
+  suggestedActionsStackedOverflow: undefined,
+  suggestedActionsStackedLayoutButtonMaxHeight: undefined,
+  suggestedActionsStackedLayoutButtonTextWrap: false,
+
          });
    
          // After generated, you can modify the CSS rules.
@@ -75,7 +106,8 @@
          
        window.WebChat.renderWebChat({
          directLine: window.WebChat.createDirectLine({
-             token: 'RRks22_-Buo.QIBS2QuUxwDeINsZmPPeO-WCXFh0mE1XJIwC8Ulf-ss'}),//ボットのシークレットキー
+             token: '8opZMlpopvQ.2mX-YqkzyrsQ5-i6XcTguj02YQDgwnixPP-BNypUFVg'}),//ボットのシークレットキー
+            //token:'RRks22_-Buo.QlBs2QuUxwDelNsZmPPeO-WCXFh0mE1XJlwC8Ulf-ss'}),
          styleSet,
          styleOptions: {
             // ボットのイニシャル（アイコンが使えない場合に表示）
@@ -112,6 +144,32 @@
 
       </div>
     </footer>
+
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/script.js"></script>
+
+
+<div className="wrap">
+
+ 
+  <td>
+    <!--
+
+       <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+    -->
+  
+   <video autoplay playsinline muted id="webcam" width="250" height="250" autoPlay="autoplay" >
+   </video>
+  </td>
+
+
+  <td>
+    <div id="console2"> 分析結果</div>
+
+  </td>
+
+</div>
 
 </body>
 </html>

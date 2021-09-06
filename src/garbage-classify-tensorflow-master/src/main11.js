@@ -83,7 +83,8 @@ const trainModel = async (model, ds) => {
 const main = async () => {
 
     // 一、加载数据
-  const { ds, classes } = await getData(TRAIN_DIR, OUTPUT_DIR);
+  //const { ds, classes } = 
+  await getData(TRAIN_DIR, OUTPUT_DIR);
   // console.log(ds, classes);
 
   // 二、定义模型

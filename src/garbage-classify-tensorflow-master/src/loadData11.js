@@ -153,11 +153,15 @@ let str = JSON.stringify(datasetObj)
   //tf.util.shuffle(data);
 
   // 分批次读取数据
-  const ds ;//= await batchReadData(data);
+  //const ds ;//= await batchReadData(data);
+
+  //return {
+  //  ds,
+ //   classes,
+ // };
 
   return {
-    ds,
-    classes,
+       classes,
   };
 
 
