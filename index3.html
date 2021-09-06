@@ -1,1 +1,152 @@
-<html><head><h3>ver 0.2.0.9</h3><label id="cv">0</label><meta charset="UTF-8"><script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script><script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script><script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script></head><body> <table> </table>  <div className="wrap"> <td>  <video autoplay playsinline="" muted id="webcam" width="250" height="250" autoPlay="autoplay"> </video> </td> <td> <div id="console2"> 分析結果</div> </td> <button id="class-a">Add 00001乾電池</button> <button id="class-b">Add 00003ビン</button> <button id="class-c">Add 00006ペットボトル</button> <button id="class-1">dowload model</button> <p> <label>model.json設定</label> <input type="file" id="getModel" name="filename" title="model"> </p> <main> <button id="button">Get camera</button> <select id="select"> <option></option> </select> </main> <p> <label>画像ファイル選択：</label> <input type="file" id="imgModel" name="filename2" title="image"> <button id="class-3">画像認識</button> </p> <img id="imgf" width="227" height="227">imgf <label id="ok">結果</label> </div> <div id="console"></div>   <script src="index3.5e0340db.js"></script> </body></html>
+<html>
+  <head>
+    <h3>ver 0.2.1.0</h3>
+
+    <label id="cv" >0</label>
+
+   <meta charset="UTF-8">
+
+   <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+    
+    <script>
+      // Set  the CSS rules.
+      const styleSet = window.WebChat.createStyleSet({
+          bubbleBackground: 'rgb(245, 245, 245)', //ボット側のメッセージカラー
+          bubbleFromUserBackground: 'rgb(245, 245, 245)',　//ユーザー側のメッセージカラー
+          rootHeight: '600px',
+          rootWidth: '70%',
+          backgroundColor: 'steelblue',
+          microphoneButtonColorOnDictate: '#F33',
+         sendBoxButtonColor: '#000',
+         sendBoxButtonColorOnDisabled: '#CCC',
+         sendBoxButtonColorOnFocus: '#333',
+         sendBoxButtonColorOnHover: '#333',
+         sendBoxTextColor: 'Black',
+         
+         groupTimestamp: true,
+         sendTimeout: 20000,
+         sendTimeoutForAttachments: 120000,
+         timestampColor: '#000',
+         timestampFormat: 'relative',
+ 
+       });
+ 
+       // After generated, you can modify the CSS rules.
+       // Change font family and weight. 
+       styleSet.textContent = {
+          ...styleSet.textContent,
+          fontFamily: "'Comic Sans MS', 'Arial', sans-serif",
+          fontWeight: 'bold'
+       };
+       
+     window.WebChat.renderWebChat({
+       directLine: window.WebChat.createDirectLine({
+           token: 'QJq-lVQC-d8.iaERHfUSu4gjIByiCbQ8kA7TnhrjXMTVveSnxynDFxg'}),//ボットのシークレットキー
+       styleSet,
+       styleOptions: {
+          // ボットのイニシャル（アイコンが使えない場合に表示）
+         botAvatarInitials: 'Bot',
+         // ボットのアイコン
+         botAvatarImage: './images/bot.jpg',
+         // ユーザーのイニシャル（アイコンが使えない場合に表示）
+         userAvatarInitials: 'You',
+         // ユーザーのアイコン
+         userAvatarImage: './images/user.jpg',
+         // アイコンのサイズ
+         avatarSize: 50,
+         // Upload file のボタンを非表示
+         //hideUploadButton: true,
+ 
+         
+ 
+       }
+     }, document.getElementById('webchat'));
+      </script>
+
+  </head>
+  <body>
+
+<table>
+
+
+</table>
+
+
+
+<!--<button id="class-2">set model</button>-->
+
+<div className="wrap">
+
+ 
+    <td>
+      <!--
+
+         <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+      -->
+    
+     <video autoplay playsinline muted id="webcam" width="250" height="250" autoPlay="autoplay" >
+     </video>
+    </td>
+
+
+    <td>
+      <div id="console2"> 分析結果</div>
+
+    </td>
+  
+
+  <button id="class-a">Add　00001乾電池</button>
+<button id="class-b">Add 00003ビン</button>
+<button id="class-c">Add 00006ペットボトル</button>
+ 
+<button id="class-1">dowload model</button>
+
+
+  <p>
+    <label>model.json設定</label>
+  <input type="file" id="getModel" name="filename" title="model">
+</p>
+
+<main>
+
+ <button id="button">Get camera</button>
+ <select id="select">
+  <option></option>
+</select>
+
+</main>
+
+<p>
+  <label>画像ファイル選択：</label>
+  <input type="file" id="imgModel" name="filename2"  title="image" >
+  <button id="class-3">画像認識</button>
+</p>
+
+  <img id="imgf" width="227" height="227">imgf</label>
+
+
+
+<label id="ok">結果</label>
+
+
+
+</div>
+
+    <div id="console" ></div>
+ 
+   
+    <div id="result"></div>
+
+    <div id="console3" >qa 画像結果</div>
+
+    <!-- Add an image that we will use to test -->
+
+    <!-- Load index.js after the content of the page -->
+    <script src="index3.js"></script>
+  </body>
+</html>
